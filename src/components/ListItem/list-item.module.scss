@@ -1,0 +1,47 @@
+.list__item {
+	@apply w-full mb-2 relative transition-all last:mb-0; // border border-zinc-200 rounded-lg
+
+	button {
+		// @apply w-full text-left pr-4;
+		@apply text-zinc-700 text-left w-full py-2 px-3 pr-7 relative transition-colors;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 14px;
+			transform: translateY(-50%);
+			width: 14px;
+			height: 14px;
+			border-radius: 100%;
+			@apply bg-gray-300 transition-all duration-300;
+		}
+
+		&:hover {
+			&::before {
+				transform: translateY(-50%) scale(1.1);
+				@apply bg-emerald-500;
+			}
+		}
+	}
+
+	&_active {
+		button {
+			@apply text-opacity-60 hover:text-opacity-90;
+
+			&:hover {
+				&::before {
+					transform: translateY(-50%) scale(0.5);
+				}
+			}
+
+			&::before {
+				transform: translateY(-50%) scale(0.5);
+				// width: 7px;
+				// height: 7px;
+				// right: 18px;
+				@apply bg-emerald-500;
+			}
+		}
+	}
+}

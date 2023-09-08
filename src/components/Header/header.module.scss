@@ -1,0 +1,7 @@
+.header {
+	@apply p-4;
+
+	&__title {
+		@apply text-2xl font-bold;
+	}
+}

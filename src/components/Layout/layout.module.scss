@@ -1,0 +1,7 @@
+.wrapper {
+	@apply flex flex-col w-full min-h-screen;
+}
+
+.page {
+	@apply flex-auto flex items-center justify-center h-full bg-emerald-500;
+}
