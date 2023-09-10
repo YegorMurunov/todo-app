@@ -1,0 +1,79 @@
+.list__item {
+	@apply flex items-center justify-center w-full mb-2 relative transition-all last:mb-0; // border border-zinc-200 rounded-lg
+
+	.list__btn {
+		// @apply w-full text-left pr-4;
+		@apply text-zinc-700 text-left shadow-transparent rounded-lg w-full py-2 px-3 pl-7 relative transition-all duration-300;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 5px;
+			transform: translateY(-50%);
+			width: 14px;
+			height: 14px;
+			border-radius: 100%;
+			@apply bg-gray-300 transition-all duration-300;
+		}
+
+		&:hover {
+			&::before {
+				transform: translateY(-50%) scale(1.1);
+				@apply bg-emerald-500;
+			}
+		}
+		&:focus {
+			// @apply shadow-md;
+
+			&::before {
+				transform: translateY(-50%) scale(1.1);
+				@apply bg-emerald-500;
+			}
+		}
+	}
+
+	&_active {
+		.list__btn {
+			@apply text-opacity-60 line-through hover:text-opacity-90;
+
+			&:hover {
+				&::before {
+					transform: translateY(-50%) scale(0.5);
+				}
+			}
+			&:focus {
+				// @apply shadow-md;
+
+				&::before {
+					transform: translateY(-50%) scale(0.5);
+				}
+			}
+
+			&::before {
+				transform: translateY(-50%) scale(0.5);
+				@apply bg-emerald-500;
+			}
+		}
+	}
+}
+
+.list__showMore {
+	@apply transition-transform duration-300;
+
+	&:hover {
+		transform: scale(1.2);
+	}
+
+	&:focus {
+		transform: scale(1.2);
+
+		svg {
+			@apply text-emerald-500;
+		}
+	}
+
+	svg {
+		@apply text-zinc-700 hover:text-emerald-500 transition-all duration-300;
+	}
+}

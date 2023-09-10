@@ -1,68 +1,48 @@
-import styles from './app.module.scss';
+import { createContext } from 'react';
 import Layout from '../Layout/Layout';
-import ListItem from '../ListItem/ListItem';
-import { useState } from 'react';
+import useTodos from '../../hooks/useTodos';
+import List from '../screens/Home/List/List';
+import AddNewTodo from '../screens/Home/AddNewTodo/AddNewTodo';
+import cn from 'classnames';
 
-const db = [
-	{
-		title: 'Do todo app',
-		isCompleted: false,
-		_id: 'sadjaskjhgd'
-	},
-	{
-		title: 'Buy iphone',
-		isCompleted: false,
-		_id: 'sad21332tgvsdjaskjhgd'
-	},
-	{
-		title: 'Do homework',
-		isCompleted: true,
-		_id: 'shjhj3hg13oi9cu89y'
-	}
-];
+import styles from './app.module.scss';
+
+export const todosContext = createContext({});
 
 const App = () => {
-	const date = new Date('09.05.2023');
+	const date = new Date(); // 09.05.2023
 	const dayOfWeek = date.toLocaleString('en-ES', { weekday: 'long' });
 	const day =
-		date.getDay().toString.length === 1 ? `0${date.getDay()}` : date.getDay();
+		date.getDate().toString().length === 1
+			? `0${date.getDate()}`
+			: date.getDate();
 	const month = date.toLocaleString('en-ES', { month: 'long' });
 	const year = date.getFullYear();
 
-	const [todos, setTodos] = useState(db);
+	const { todos, changeCompletedFiled, removeTodo, addTodo, renameTodo } =
+		useTodos();
 
-	const changeTodo = id => {
-		let copy = [...todos];
-		let current = copy.find(t => t._id == id);
-		current.isCompleted = !current.isCompleted;
-		setTodos(copy);
-	};
-
-	const removeTodo = id => {
-		setTodos(todos.filter(t => t._id !== id));
-	};
+	const { Provider, Consumer } = todosContext;
 
 	return (
-		<Layout>
-			<div className={styles.content}>
-				<div className={styles.content__date}>
-					<div className={styles.date__title}>{dayOfWeek}</div>
-					<div className={styles.date__other}>
-						{month} {day}, {year}
+		<Provider
+			value={{ todos, changeCompletedFiled, removeTodo, addTodo, renameTodo }}
+		>
+			<Layout>
+				<div className={cn(styles.content, 'overflow-hidden')}>
+					<div className={styles.content__date}>
+						<div className={styles.date__title}>{dayOfWeek}</div>
+						<div className={styles.date__other}>
+							{month} {day}, {year}
+						</div>
 					</div>
+					<List />
 				</div>
-				<ul className={styles.list}>
-					{todos.map(todo => (
-						<ListItem
-							todo={todo}
-							key={todo._id}
-							changeTodo={changeTodo}
-							removeTodo={removeTodo}
-						/>
-					))}
-				</ul>
-			</div>
-		</Layout>
+				<div className={styles.addNew}>
+					<AddNewTodo addTodo={addTodo} />
+				</div>
+			</Layout>
+		</Provider>
 	);
 };
 

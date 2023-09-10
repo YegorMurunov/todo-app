@@ -1,5 +1,5 @@
 .content {
-	@apply max-w-xl bg-white rounded-lg w-full p-5 text-black;
+	@apply max-w-xl bg-white rounded-lg w-full p-5 text-black mb-5;
 
 	&__date {
 		@apply flex flex-col items-center justify-center;
@@ -11,8 +11,8 @@
 	.date__other {
 		@apply text-center text-zinc-500 text-base capitalize font-normal;
 	}
+}
 
-	.list {
-		@apply w-full mt-6;
-	}
+.addNew {
+	@apply max-w-xl bg-transparent w-full text-black;
 }

@@ -1,0 +1,32 @@
+.form {
+	@apply flex items-stretch justify-center relative;
+}
+
+.input {
+	@apply flex-auto relative bg-white rounded-full p-3 pr-9  mr-4;
+	width: calc(100% - 1rem - 48px);
+}
+
+.btn {
+	@apply w-12 h-12 flex items-center justify-center rounded-full text-emerald-500 transition-all duration-300 hover:scale-110;
+
+	&:disabled {
+		@apply opacity-80;
+	}
+}
+
+.status {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%) scale(0);
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+	@apply right-20 bg-emerald-500 transition duration-300; // bg-gray-300
+}
+
+.input:focus + .status {
+	transform: translateY(-50%) scale(1);
+	// @apply bg-emerald-500;
+}

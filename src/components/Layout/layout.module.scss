@@ -3,5 +3,5 @@
 }
 
 .page {
-	@apply flex-auto flex items-center justify-center h-full bg-emerald-500;
+	@apply flex-auto flex flex-col items-center justify-center h-full bg-emerald-500 px-3;
 }

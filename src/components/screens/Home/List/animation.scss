@@ -1,0 +1,17 @@
+// .animItem {
+// 	transform: scale(0);
+// }
+.animItem-enter {
+	transform: translate(100%, 0);
+}
+.animItem-enter-active {
+	transform: translate(0, 0);
+	transition: transform 400ms ease-in;
+}
+.animItem-exit {
+	transform: translate(0, 0);
+}
+.animItem-exit-active {
+	transform: translate(100%, 0);
+	transition: transform 400ms ease-in;
+}

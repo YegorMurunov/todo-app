@@ -1,0 +1,50 @@
+import React, { useContext, useState } from 'react';
+import cn from 'classnames';
+import { MdOutlineMoreVert } from 'react-icons/md';
+import { CSSTransition } from 'react-transition-group';
+import ShowMoreMenu from './ShowMoreMenu/ShowMoreMenu';
+
+import styles from './list-item.module.scss';
+import './anim.scss';
+import { useOutside } from '../../../../hooks/useOutside';
+import { todosContext } from '../../../App/App';
+
+const ListItem = ({ todo }) => {
+	const { changeCompletedFiled } = useContext(todosContext);
+
+	const [isShow, setIsShow] = useState(false);
+
+	// const { ref, isShow, setIsShow } = useOutside(false);
+
+	return (
+		<li
+			className={cn(
+				styles.list__item,
+				todo.isCompleted ? styles.list__item_active : ''
+			)}
+		>
+			<button
+				className={styles.list__btn}
+				onClick={() => {
+					changeCompletedFiled(todo._id);
+				}}
+			>
+				{todo.title}
+			</button>
+
+			<button
+				className={styles.list__showMore}
+				onClick={() => {
+					setIsShow(!isShow);
+				}}
+			>
+				<MdOutlineMoreVert size={22} />
+			</button>
+			<CSSTransition in={isShow} timeout={400} classNames='alert' unmountOnExit>
+				<ShowMoreMenu todo={todo} />
+			</CSSTransition>
+		</li>
+	);
+};
+
+export default ListItem;
