@@ -3,7 +3,7 @@
 }
 
 .input {
-	@apply flex-auto relative bg-white rounded-full p-3 pr-9  mr-4;
+	@apply flex-auto relative bg-white rounded-full p-3 pr-9 outline-none mr-4;
 	width: calc(100% - 1rem - 48px);
 }
 

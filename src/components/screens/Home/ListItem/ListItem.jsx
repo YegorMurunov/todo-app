@@ -7,14 +7,14 @@ import ShowMoreMenu from './ShowMoreMenu/ShowMoreMenu';
 import styles from './list-item.module.scss';
 import './anim.scss';
 import { useOutside } from '../../../../hooks/useOutside';
-import { todosContext } from '../../../App/App';
+import { todosContext } from '../Home';
 
 const ListItem = ({ todo }) => {
 	const { changeCompletedFiled } = useContext(todosContext);
 
-	const [isShow, setIsShow] = useState(false);
+	// const [isShow, setIsShow] = useState(false);
 
-	// const { ref, isShow, setIsShow } = useOutside(false);
+	const { ref, isShow, setIsShow } = useOutside(false);
 
 	return (
 		<li
@@ -37,6 +37,8 @@ const ListItem = ({ todo }) => {
 				onClick={() => {
 					setIsShow(!isShow);
 				}}
+				ref={ref}
+				tabIndex={0}
 			>
 				<MdOutlineMoreVert size={22} />
 			</button>

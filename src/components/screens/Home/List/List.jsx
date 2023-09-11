@@ -2,7 +2,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ListItem from '../ListItem/ListItem';
 import './animation.scss';
 import { useContext } from 'react';
-import { todosContext } from '../../../App/App';
+import { todosContext } from '../Home';
 
 const List = () => {
 	const { todos } = useContext(todosContext);

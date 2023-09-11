@@ -4,7 +4,7 @@ import { BiSolidTrash } from 'react-icons/bi';
 import { MdModeEditOutline } from 'react-icons/md';
 
 import styles from './show-more-menu.module.scss';
-import { todosContext } from '../../../../App/App';
+import { todosContext } from '../../Home';
 
 const ShowMoreMenu = ({ todo }) => {
 	const { removeTodo, renameTodo } = useContext(todosContext);

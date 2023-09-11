@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { BsSendFill } from 'react-icons/bs';
 import cn from 'classnames';
 import styles from './add-new-todo.module.scss';
-import { todosContext } from '../../../App/App';
+import { todosContext } from '../Home';
 
 const AddNewTodo = () => {
 	const [inputValue, setInputValue] = useState('');

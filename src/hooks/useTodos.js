@@ -4,22 +4,12 @@ import { useLocalStorage } from './useLocalStorage';
 const useTodos = () => {
 	const db = [
 		{
-			title: 'Do todo app',
+			title: 'Start use Todo App',
 			isCompleted: false,
 			_id: uuidv4()
 		},
 		{
-			title: 'Buy iphone',
-			isCompleted: false,
-			_id: uuidv4()
-		},
-		{
-			title: 'Do homework',
-			isCompleted: true,
-			_id: uuidv4()
-		},
-		{
-			title: 'Do homework2',
+			title: 'Go to the cinema',
 			isCompleted: true,
 			_id: uuidv4()
 		}
