@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import cn from 'classnames';
 import { MdOutlineMoreVert } from 'react-icons/md';
 import { CSSTransition } from 'react-transition-group';
 import ShowMoreMenu from './ShowMoreMenu/ShowMoreMenu';
+import { useOutside } from '../../../../hooks/useOutside';
+import { todosContext } from '../Home';
 
 import styles from './list-item.module.scss';
 import './anim.scss';
-import { useOutside } from '../../../../hooks/useOutside';
-import { todosContext } from '../Home';
 
 const ListItem = ({ todo }) => {
 	const { changeCompletedFiled } = useContext(todosContext);
