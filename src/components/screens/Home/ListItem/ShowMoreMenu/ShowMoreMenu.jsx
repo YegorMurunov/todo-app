@@ -16,7 +16,7 @@ const ShowMoreMenu = ({ todo }) => {
 					className={styles.list__editBtn}
 					onClick={() => {
 						const newTitle = prompt(`rename your task "${todo.title}"`);
-						if (newTitle.trim() !== '') {
+						if (newTitle && newTitle.trim() !== '') {
 							renameTodo(todo._id, newTitle);
 						}
 						return;

@@ -38,7 +38,6 @@ const ListItem = ({ todo }) => {
 					setIsShow(!isShow);
 				}}
 				ref={ref}
-				tabIndex={0}
 			>
 				<MdOutlineMoreVert size={22} />
 			</button>
