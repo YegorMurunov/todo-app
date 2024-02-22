@@ -37,13 +37,20 @@ const ListItem = ({ todo }) => {
 				onClick={() => {
 					setIsShow(!isShow);
 				}}
-				ref={ref}
+				// ref={ref}
 			>
 				<MdOutlineMoreVert size={22} />
 			</button>
-			<CSSTransition in={isShow} timeout={400} classNames='alert' unmountOnExit>
-				<ShowMoreMenu todo={todo} />
-			</CSSTransition>
+			<div ref={ref}>
+				<CSSTransition
+					in={isShow}
+					timeout={400}
+					classNames='alert'
+					unmountOnExit
+				>
+					<ShowMoreMenu todo={todo} />
+				</CSSTransition>
+			</div>
 		</li>
 	);
 };
