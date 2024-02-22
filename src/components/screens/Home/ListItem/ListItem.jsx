@@ -32,16 +32,16 @@ const ListItem = ({ todo }) => {
 				{todo.title}
 			</button>
 
-			<button
-				className={styles.list__showMore}
-				onClick={() => {
-					setIsShow(!isShow);
-				}}
-				// ref={ref}
-			>
-				<MdOutlineMoreVert size={22} />
-			</button>
 			<div ref={ref}>
+				<button
+					className={styles.list__showMore}
+					onClick={() => {
+						setIsShow(!isShow);
+					}}
+					// ref={ref}
+				>
+					<MdOutlineMoreVert size={22} />
+				</button>
 				<CSSTransition
 					in={isShow}
 					timeout={400}
